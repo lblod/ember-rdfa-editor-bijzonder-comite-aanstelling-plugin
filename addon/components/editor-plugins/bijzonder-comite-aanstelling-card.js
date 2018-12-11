@@ -53,8 +53,8 @@ export default Component.extend(SerializationHelper, {
     return `output-comite-aanstelling-${this.elementId}`;
   }),
 
-  rdfaEditorComiteAanstellingPlugin: service(),
-  bestuursorgaanUri: reads('rdfaEditorComiteAanstellingPlugin.bestuursorgaanUri'),
+  rdfaEditorBijzonderComiteAanstellingPlugin: service(),
+  bestuursorgaanUri: reads('rdfaEditorBijzonderComiteAanstellingPlugin.bestuursorgaanUri'),
 
  loadData: task(function *(){
     yield this.setProperties();
