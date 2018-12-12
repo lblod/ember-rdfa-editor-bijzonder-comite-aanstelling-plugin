@@ -3,6 +3,7 @@ import RdfaContextScanner from '@lblod/ember-rdfa-editor/utils/rdfa-context-scan
 import { A } from '@ember/array';
 import { inject as service } from '@ember/service';
 import MandatarisToCreate from '../../models/mandataris-to-create';
+import { afstandMandaatStatus  } from '../../models/mandataris-to-create';
 
 
 export default Mixin.create({
@@ -26,54 +27,33 @@ export default Mixin.create({
 
     await this.setMandaatComite();
     await this.setCachedPersonen();
-    await this.setMandatarisStatusCodes();
   },
 
-  //TODO: check from where this should come
-  getMandatarisTableNode(){
-    return  document.querySelectorAll("[property='ext:mandatarisTabelInput']")[0]
-      ||  document.querySelectorAll(`[property='${this.expandedExt}/mandatarisTabelInput']`)[0];
-  },
-
-  //TODO  is this required?
-  async setMandatarisStatusCodes(){
-    let codes = await this.store.findAll('mandataris-status-code');
-    //Remove titelVoerend
-    codes = codes.filter(c => c.uri != 'http://data.vlaanderen.be/id/concept/MandatarisStatusCode/aacb3fed-b51d-4e0b-a411-f3fa641da1b3');
-    this.set('mandatarisStatusCodes', codes);
-  },
-
-  //TODO: will they come from there
-  async setCachedPersonen(){
-    //a subset of peronen of interest
-    let personen = await this.store.query('persoon',
-                     {
-                       filter: {
-                         'is-kandidaat-voor': {
-                           'rechtstreekse-verkiezing': {
-                             'stelt-samen': {
-                               ':uri:': this.bestuursorgaan.uri
-                             }
-                           }
-                         },
-                         'verkiezingsresultaten': {
-                           'gevolg': {
-                             ':uri:': this.verkozenGevolgUri
-                           },
-                           'is-resultaat-voor': {
-                             'rechtstreekse-verkiezing': {
-                               'stelt-samen': {
-                                 ':uri:': this.bestuursorgaan.uri
-                               }
-                             }
-                           }
-                         }
+  async getOcmwRaadsLeden(){
+    let mandatarissen = await this.store.query('mandataris',
+                 {
+                   filter: {
+                     'bekleedt': {
+                       'bestuursfunctie': {
+                         ':uri:' : 'http://data.vlaanderen.be/id/concept/BestuursfunctieCode/5ab0e9b8a3b2ca7c5e000015'
                        },
-                       include: 'geboorte',
-                       page: { size: 1000 },
-                       sort:'gebruikte-voornaam'
-                     });
-    this.set('cachedPersonen', personen.toArray() || A());
+                       'bevat-in': {
+                           ':uri:' : this.bestuursorgaan.uri
+                       }
+                     }
+                   },
+                   include: 'is-bestuurlijke-alias-van,is-bestuurlijke-alias-van.geboorte',
+                   page: { size: 1000 },
+                   sort:'is-bestuurlijke-alias-van.gebruikte-voornaam'
+                 });
+    return mandatarissen;
+  },
+
+  async setCachedPersonen(){
+    //List is based on an intial sync from gemeenteraadsleden
+    let ocmwRaadsleden = await this.getOcmwRaadsLeden();
+    let personen = ocmwRaadsleden.map(m => m.get('isBestuurlijkeAliasVan'));
+    this.set('cachedPersonen',  personen || A());
   },
 
   async smartFetchPersoon(subjectUri){
@@ -123,23 +103,23 @@ export default Mixin.create({
     return mandatarissen;
    },
 
-  async instantiateNewComite(triples){
+  async instantiateNewComite(){
     await this.setProperties();
-    const persons = triples.filter(t => t.predicate === 'http://data.vlaanderen.be/ns/mandaat#isBestuurlijkeAliasVan').map(t => t.object);
-    let personUris = Array.from(new Set(persons));
-    const mandatarissen = A();
-    for (let personUri of personUris) {
-      mandatarissen.pushObject(await this.initNewComite(personUri));
+    let mandatarissen = A();
+    for(let persoon of this.cachedPersonen){
+      mandatarissen.pushObject(await this.initNewComite(persoon));
     }
-    return mandatarissen;
+    this.set('mandatarissen', mandatarissen);
   },
 
-  async initNewComite(persoonURI) {
+  async initNewComite(persoon) {
     const mandataris = MandatarisToCreate.create({});
-    mandataris.set('bekleedt', this.comiteMandaat);
-    mandataris.set('rangorde', '');
-    mandataris.set('status', {label: '', uri: ''});
-    mandataris.set('isBestuurlijkeAliasVan', await this.smartFetchPersoon(persoonURI));
+    // mandataris.set('bekleedt', this.comiteMandaat);
+    // mandataris.set('rangorde', '');
+    // mandataris.set('status', {label: '', uri: ''});
+    mandataris.set('isBestuurlijkeAliasVan', persoon);
+    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
+    mandataris.set('isEffectief', true);
     return mandataris;
   },
 

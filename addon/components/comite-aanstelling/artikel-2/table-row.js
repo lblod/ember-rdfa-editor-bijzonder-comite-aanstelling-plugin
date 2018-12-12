@@ -18,6 +18,9 @@ export default Component.extend({
         m.set('opvolgerVan', null);
         m.set('opvolgerPlaats', null);
       });
+    },
+    toggleOpvolgers(){
+      this.toggleProperty('showOpvolgers');
     }
   }
 });
