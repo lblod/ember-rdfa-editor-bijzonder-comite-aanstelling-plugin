@@ -1,0 +1,26 @@
+<div class="grid">
+  <nav class="col--1-1" role="navigation" data-tabs>
+    <ul class="tabs tabs--block u-spacer--none" data-tabs-list>
+      <li class={{if (eq artikel 1) "tab tab--active" "tab"}}>
+        <a class="tab__link" href="#" onclick={{action 'getArtikel' 1}}> Beheer afstanden, onverenigbaarheden, ...</a>
+      </li>
+      <li class={{if (eq artikel 2) "tab tab--active" "tab"}}>
+        <a class="tab__link" href="#" onclick={{action 'getArtikel' 2}}> Beheer kandidaten en opvolgers</a>
+      </li>
+      <li class={{if (eq artikel 3) "tab tab--active" "tab"}}>
+        <a class="tab__link" href="#" onclick={{action 'getArtikel' 3}}> Beheer statussen</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+{{#if (eq artikel 1)}}
+  {{comite-aanstelling/artikel-1/table mandatarissen=mandatarissen}}
+{{/if}}
+{{#if (eq artikel 2)}}
+  {{comite-aanstelling/artikel-2/table mandatarissen=mandatarissen}}
+{{/if}}
+{{#if (eq artikel 3)}}
+  {{comite-aanstelling/artikel-3/table mandatarissen=mandatarissen statusCodes=statusCodes}}
+{{/if}}

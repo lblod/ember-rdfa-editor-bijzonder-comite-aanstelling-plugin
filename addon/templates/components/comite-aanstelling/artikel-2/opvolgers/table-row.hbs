@@ -1,0 +1,17 @@
+<td>
+  {{comite-aanstelling/artikel-2/opvolgers/rangorde-selector mandataris=mandataris}}
+</td>
+<td>
+  <strong>{{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}}</strong>
+</td>
+<td>
+  {{comite-aanstelling/datetime-edit datetimeStr=(mut mandataris.start)}}
+</td>
+<td>
+  {{comite-aanstelling/datetime-edit datetimeStr=(mut mandataris.einde)}}
+</td>
+<td>
+  {{#wu-link-button class="button--alt button--small" isNarrow=true onClick=(action "remove")}}
+    <i class="vi vi-cross vi-u-s"></i>verwijder opvolger
+  {{/wu-link-button}}
+</td>

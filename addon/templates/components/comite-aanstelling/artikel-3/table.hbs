@@ -1,0 +1,17 @@
+<table class="data-table data-table--zebra">
+  <thead>
+    <tr>
+      <th>
+        Officiële naam
+      </th>
+      <th>Start</th>
+      <th>Einde</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedMandatarissen as |mandataris|}}
+      {{comite-aanstelling/artikel-3/table-row mandataris=mandataris mandatarissen=mandatarissen statusCodes=statusCodes}}
+    {{/each}}
+  </tbody>
+</table>

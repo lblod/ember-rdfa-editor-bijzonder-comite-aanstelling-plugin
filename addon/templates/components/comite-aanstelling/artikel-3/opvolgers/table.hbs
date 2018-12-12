@@ -1,0 +1,18 @@
+<table class="data-table data-table--lined data-table--zebra">
+  <thead>
+    <tr>
+      <th>Plaats opvolging</th>
+      <th>
+        Officiële naam opvolger
+      </th>
+      <th>Start</th>
+      <th>Einde</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedMandatarissen as |mandataris|}}
+      {{comite-aanstelling/artikel-3/opvolgers/table-row mandataris=mandataris statusCodes=statusCodes}}
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+{{#if statusCodes}}
+  {{#power-select
+     options=statusCodes
+     allowClear=true
+     selected=mandataris.status
+     onchange=(action "select")
+     renderInPlace=true
+     as |status|}}
+    {{status.label}}
+  {{/power-select}}
+{{else}}
+  Aan het laden...
+{{/if}}

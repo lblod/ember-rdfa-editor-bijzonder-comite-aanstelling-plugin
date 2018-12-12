@@ -1,0 +1,10 @@
+{{#power-select
+   noMatchesMessage="Alle kanidaten worden benoemd"
+   options=options
+   selected=mandataris
+   onchange=(action "select")
+   renderInPlace=true
+   allowClear=true
+   as |mandataris|}}
+  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}} ({{moment-format mandataris.isBestuurlijkeAliasVan.geboorte.datum 'DD/MM/YYYY'}})
+{{/power-select}}

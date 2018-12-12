@@ -1,0 +1,22 @@
+<td>
+  <strong>{{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}}</strong>
+  <div class="col--4-12">
+    {{#wu-link-button class="button--small button--link u-spacer--left--tiny" isNarrow=true onClick=(action "toggleOpvolgers")}}
+      <i class="fa fa-plus"></i> opvolgers
+    {{/wu-link-button}}
+  </div>
+  {{#if showOpvolgers}}
+    {{comite-aanstelling/artikel-2/opvolgers/table mandataris=mandataris mandatarissen=mandatarissen}}
+  {{/if}}
+</td>
+<td>
+  {{comite-aanstelling/datetime-edit datetimeStr=(mut mandataris.start)}}
+</td>
+<td>
+  {{comite-aanstelling/datetime-edit datetimeStr=(mut mandataris.einde)}}
+</td>
+<td>
+    {{#wu-link-button class="button--alt button--small" isNarrow=true onClick=(action "remove")}}
+      <i class="vi vi-cross vi-u-s"></i>Geen kandidaat lid
+    {{/wu-link-button}}
+</td>
