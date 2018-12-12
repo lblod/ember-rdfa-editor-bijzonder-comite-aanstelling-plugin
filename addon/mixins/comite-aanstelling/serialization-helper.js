@@ -27,6 +27,14 @@ export default Mixin.create({
 
     await this.setMandaatComite();
     await this.setCachedPersonen();
+    await this.setMandatarisStatusCodes();
+  },
+  
+  async setMandatarisStatusCodes(){
+    let codes = await this.store.findAll('mandataris-status-code');
+    //Remove titelVoerend
+    codes = codes.filter(c => c.uri != 'http://data.vlaanderen.be/id/concept/MandatarisStatusCode/aacb3fed-b51d-4e0b-a411-f3fa641da1b3');
+    this.set('mandatarisStatusCodes', codes);
   },
 
   async getOcmwRaadsLeden(){
