@@ -8,6 +8,8 @@ export default Component.extend({
     remove(){
       this.mandataris.set('opvolgerVan', null);
       this.mandataris.set('opvolgerPlaats', null);
+      this.mandataris.set('start', null);
+      this.mandataris.set('einde', null);
     }
   }
 });

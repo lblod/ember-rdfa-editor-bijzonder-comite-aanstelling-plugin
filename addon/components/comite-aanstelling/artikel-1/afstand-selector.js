@@ -8,7 +8,6 @@ export default Component.extend({
   options:afstandMandaatStatus,
   actions: {
     select(status) {
-      debugger;
       this.mandataris.set('afstandVanMandaatStatus', status);
     }
   }
