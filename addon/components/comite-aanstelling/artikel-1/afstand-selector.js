@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   layout,
-  options:afstandMandaatStatus, 
+  options:afstandMandaatStatus,
   actions: {
     select(status) {
       debugger;
