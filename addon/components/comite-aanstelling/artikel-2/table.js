@@ -18,10 +18,6 @@ export default Component.extend({
     if(!this.mandatarissen) return;
 
     this.set('mandatarissenZonderAfstand', this.mandatarissen.filter(m => m.afstandVanMandaatStatus.key == 'geen'));
-    this.mandatarissenZonderAfstand.forEach(m =>  {
-      if(m.isEffectief == null)
-        m.set('isEffectief', true);
-      });
   },
 
   actions: {

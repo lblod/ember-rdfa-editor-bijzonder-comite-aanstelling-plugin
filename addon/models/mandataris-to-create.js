@@ -3,7 +3,7 @@ import uuid from 'uuid/v4';
 
 const afstandMandaatStatus =
         [
-          { key: 'afstand', 'value': 'afstandMandaat '},
+          { key: 'afstand', value: 'afstand Mandaat '},
           { key: 'afwezigKennis', value: 'awezigheid met kennisgeving'},
           { key: 'afwezigZonderKennis', value: 'afwezigheid zonder kennisgeving'},
           { key: 'verkiezbaarheid', value: 'niet voldoen aan de verkiesbaarheidsvoorwaarden'},
@@ -11,8 +11,14 @@ const afstandMandaatStatus =
           { key: 'geen', value: 'geen afstand'}
         ];
 
+const opvolgerPlaatsValues  = ['Eerste opvolger', 'Tweede opvolger'];
+
 export {
-  afstandMandaatStatus }
+  afstandMandaatStatus,
+  opvolgerPlaatsValues
+}
+
+
 
 export default EmberObject.extend({
   uri: null,
@@ -23,6 +29,9 @@ export default EmberObject.extend({
   einde: null,
   heeftLidmaatschap: null,
   afstandVanMandaatStatus: null,
+  opvolgerVan: null,
+  opvolgerPlaats: null,
+  isEffectief: null,
 
   //only for this plugin
   opvolgers: null,

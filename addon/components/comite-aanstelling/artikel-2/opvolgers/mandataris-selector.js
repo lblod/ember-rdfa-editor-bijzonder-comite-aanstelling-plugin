@@ -1,6 +1,20 @@
 import Component from '@ember/component';
 import layout from '../../../../templates/components/comite-aanstelling/artikel-2/opvolgers/mandataris-selector';
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  layout
+  layout,
+
+  options: computed('mandatarissen', 'mandatarissen.@each.isEffectief',
+                    'mandatarissen.@each.opvolgerVan', 'mandatarissen.@each.opvolgerPlaats',
+                    function(){
+                      return this.mandatarissen.filter(m => m.isEffectief == false && !m.opvolgerVan);
+  }),
+
+  actions: {
+    select(mandataris){
+      this.set('mandataris', mandataris);
+      this.onSelect(mandataris);
+    }
+  }
 });
