@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
 import SerializationHelper from '../../mixins/comite-aanstelling/serialization-helper';
 import uuid from 'uuid/v4';
+import { A } from '@ember/array';
 
 /**
 * Card displaying a hint of the Date plugin
@@ -65,17 +66,7 @@ export default Component.extend(SerializationHelper, {
   }),
 
   async loadDataInitialMode(){
-    //TODO: where should the data come from?
-    let table = this.getMandatarisTableNode();
-    if(!table)
-      return;
-
-    let triples = this.serializeTableToTriples(table);
-    if(triples.length == 0)
-      return;
-
-    let mandatarissen = await this.instantiateNewComite(triples);
-    this.set('mandatarissen', mandatarissen);
+    await this.instantiateNewComite();
   },
 
   async loadDataEditMode(){

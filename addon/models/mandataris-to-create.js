@@ -1,21 +1,31 @@
 import EmberObject from '@ember/object';
 import uuid from 'uuid/v4';
 
-const rangordeValues = [
-  'Eerste schepen', 'Tweede schepen', 'Derde schepen',
-  'Vierde schepen', 'Vijfde schepen', 'Zesde schepen',
-  'Zevende schepen', 'Achtste schepen', 'Negende schepen', 'Tiende schepen'];
-export { rangordeValues }
+const afstandMandaatStatus =
+        [
+          { key: 'afstand', 'value': 'afstandMandaat '},
+          { key: 'afwezigKennis', value: 'awezigheid met kennisgeving'},
+          { key: 'afwezigZonderKennis', value: 'afwezigheid zonder kennisgeving'},
+          { key: 'verkiezbaarheid', value: 'niet voldoen aan de verkiesbaarheidsvoorwaarden'},
+          { key: 'onverenigbaarheid', value: 'onverenigbaarheid'},
+          { key: 'geen', value: 'geen afstand'}
+        ];
+
+export {
+  afstandMandaatStatus }
 
 export default EmberObject.extend({
   uri: null,
-  rangorde: 0,
   isBestuurlijkeAliasVan: null,
   bekleedt: null,
   status: null,
   start: null,
   einde: null,
   heeftLidmaatschap: null,
+  afstandVanMandaatStatus: null,
+
+  //only for this plugin
+  opvolgers: null,
 
   rdfaBindings: { // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
     class: "http://data.vlaanderen.be/ns/mandaat#Mandataris",
