@@ -13,6 +13,8 @@ export default Component.extend({
   },
   actions: {
     remove(){
+      this.mandataris.set('start', null);
+      this.mandataris.set('einde', null);
       this.mandataris.set('isEffectief', false);
       this.mandatarissen.filter(this.isOpvolger(this.mandataris)).forEach(m => {
         m.set('opvolgerVan', null);
