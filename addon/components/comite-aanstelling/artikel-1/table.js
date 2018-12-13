@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import layout from '../../../templates/components/comite-aanstelling/artikel-1/table';
 import { computed } from '@ember/object';
 import sortName from '../../../utils/sort-mandataris-name';
+import getOpvolgers from '../../../utils/get-opvolgers';
 
 export default Component.extend({
   layout,
@@ -12,6 +13,11 @@ export default Component.extend({
 
   actions: {
     remove(mandataris){
+      getOpvolgers(this.mandatarissen, mandataris).forEach(m => {
+        m.set('opvolgerVan', null);
+        m.set('opvolgerPlaats', null);
+      });
+
       this.mandatarissen.removeObject(mandataris);
     },
     addMandataris(){
