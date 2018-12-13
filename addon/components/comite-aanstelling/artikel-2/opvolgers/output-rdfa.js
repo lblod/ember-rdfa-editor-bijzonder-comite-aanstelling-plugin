@@ -6,6 +6,6 @@ export default Component.extend({
   layout,
   tagName:'tr',
   isMandatarisEffectief: computed('mandataris', 'mandataris.status', function(){
-    return this.mandataris.status;
+    return this.mandataris.status && this.mandataris.status.uri;
   })
 });
