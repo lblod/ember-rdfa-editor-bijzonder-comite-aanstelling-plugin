@@ -1,7 +1,7 @@
-ember-rdfa-editor-bijzonder-comite-aanstelling-plugin
+@lblod/ember-rdfa-editor-bijzonder-comite-aanstelling-plugin
 ==============================================================================
 
-[Short description of the addon.]
+Plugin responsible for managing bijzonder comite during installation
 
 Installation
 ------------------------------------------------------------------------------
@@ -13,8 +13,10 @@ ember install ember-rdfa-editor-bijzonder-comite-aanstelling-plugin
 
 Usage
 ------------------------------------------------------------------------------
-
-[Longer description of how to use the addon in apps.]
+Add
+```
+<span property="ext:insertComiteAanstellingText">beheer aanstelling</span>
+```
 
 
 Contributing
