@@ -7,6 +7,10 @@ export default Component.extend({
   actions: {
     select(status) {
       this.mandataris.set('status', status);
+      if(status)
+        this.mandataris.set('isEffectief', true);
+      else
+        this.mandataris.set('isEffectief', false);
     }
   }
 

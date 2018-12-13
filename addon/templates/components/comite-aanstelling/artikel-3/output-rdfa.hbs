@@ -1,0 +1,12 @@
+{{#unless hasVerhinderd}}
+  Akte te nemen van het gegeven dat er geen leden van het bijzonder comité voor de sociale dienst verhinderd zijn.
+{{else}}
+  Akte te nemen van de verhindering van volgende leden van het bijzonder comité voor de sociale dienst:
+  <ul>
+    {{#each sortedMandatarissen as |mandataris|}}
+      <li>
+        {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+      </li>
+    {{/each}}
+  </ul>
+{{/unless}}

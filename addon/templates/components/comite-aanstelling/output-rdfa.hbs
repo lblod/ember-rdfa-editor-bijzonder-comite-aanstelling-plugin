@@ -7,7 +7,6 @@
 {{#comite-aanstelling/output-article as |a| }}
   <span property="eli:number">Artikel 2</span>
   <span property="prov:value">
-    <p>Akte te nemen van:</p>
     <br>
     <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
     <ul>
@@ -19,5 +18,14 @@
     </ul>
   </span>
 {{/comite-aanstelling/output-article}}
+
+{{#comite-aanstelling/output-article as |a|}}
+  <span property="eli:number">Artikel 3</span>
+  <span property="prov:value">
+    {{comite-aanstelling/artikel-3/output-rdfa articleUri=a.articleUri articleTypeof=a.typeof mandatarissen=mandatarissen}}
+  </span>
+{{/comite-aanstelling/output-article}}
+
+{{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen}}
 
 {{yield}}

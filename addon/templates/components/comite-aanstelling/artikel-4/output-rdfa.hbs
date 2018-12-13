@@ -1,0 +1,16 @@
+{{#if hasWaarnemend}}
+  {{#comite-aanstelling/output-article as |a|}}
+    <span property="eli:number">Artikel 4</span>
+    <span property="prov:value">
+      De geloofsbrieven van volgende opvolgers die de verhinderde raadsleden vervangen voor de duur van de verhindering, goed te keuren en akte te nemen van de eedaflegging:
+      Akte te nemen van het gegeven dat er geen leden van het bijzonder comité voor de sociale dienst verhinderd zijn.
+      <ul>
+        {{#each sortedMandatarissen as |mandataris|}}
+          <li>
+            {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+          </li>
+        {{/each}}
+      </ul>
+    </span>
+  {{/comite-aanstelling/output-article}}
+{{/if}}
