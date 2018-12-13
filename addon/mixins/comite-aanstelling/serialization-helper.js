@@ -210,6 +210,8 @@ export default Mixin.create({
     let opvolgerPlaats = triples.find(t => t.predicate === `${this.expandedExt}lidBijzonderComiteOpvolgerPlaats`);
 
     mandataris.set('opvolgerVanUri', (opvolgerVanUri || {}).object);
+    if(mandataris.opvolgerVanUri)
+      mandataris.set('isEffectief', false);
     mandataris.set('opvolgerPlaats', (opvolgerPlaats || {}).object);
 
     return mandataris;
