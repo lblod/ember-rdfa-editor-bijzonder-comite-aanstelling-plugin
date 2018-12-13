@@ -6,7 +6,7 @@ const afstandMandaatStatus =
           { key: 'afstand', value: 'afstand Mandaat '},
           { key: 'afwezigKennis', value: 'awezigheid met kennisgeving'},
           { key: 'afwezigZonderKennis', value: 'afwezigheid zonder kennisgeving'},
-          { key: 'verkiezbaarheid', value: 'niet voldoen aan de verkiesbaarheidsvoorwaarden'},
+          { key: 'verkiesbaarheid', value: 'niet voldoen aan de verkiesbaarheidsvoorwaarden'},
           { key: 'onverenigbaarheid', value: 'onverenigbaarheid'},
           { key: 'geen', value: 'geen afstand'}
         ];

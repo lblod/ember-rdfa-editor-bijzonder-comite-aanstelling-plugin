@@ -1,0 +1,80 @@
+{{#if isMandatarisEffectief}}
+  <td>
+    <span resource={{articleUri}} typeof={{articleTypeof}}>
+      <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+        <span property="ext:noLidBijzonderComiteOpvolgerVan" resource={{mandataris.opvolgerVan.uri}}></span>
+        <span property="ext:noLidBijzonderComiteOpvolgerPlaats">{{mandataris.opvolgerPlaats}}</span>
+      </span>
+    </span>
+    </td>
+
+    <td>
+      <span resource={{articleUri}} typeof={{articleTypeof}}>
+        <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+          {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
+            {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
+          {{/rdfa/ctx-linked-resource}}
+        </span>
+      </span>
+    </td>
+
+      <td>
+        <span resource={{articleUri}} typeof={{articleTypeof}}>
+          <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+            <span property="mandaat:start" datatype="xsd:date" content={{moment-format mandataris.start 'YYYY-MM-DD'}}>
+              {{moment-format mandataris.start 'LL'}}
+            </span>
+          </span>
+        </span>
+      </td>
+
+
+        <td>
+          <span resource={{articleUri}} typeof={{articleTypeof}}>
+            <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+              <span property="mandaat:einde" datatype="xsd:date" content={{moment-format mandataris.einde 'YYYY-MM-DD'}}>
+                {{moment-format mandataris.einde 'LL'}}
+              </span>
+              <span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span>
+              <span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span>
+            </span>
+          </span>
+        </td>
+{{else}}
+          <td>
+            <span resource={{mandataris.uri}} typeof="ext:LidBijzonderComiteOpvolger">
+
+              <span property="ext:noLidBijzonderComiteOpvolgerPlaats">{{mandataris.opvolgerPlaats}}</span>
+              <span property="ext:noLidBijzonderComiteOpvolgerVan" resource={{mandataris.opvolgerVan.uri}}></span>
+            </span>
+          </td>
+
+
+          <td>
+            <span resource={{mandataris.uri}} typeof="ext:LidBijzonderComiteOpvolger">
+              {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
+                {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
+              {{/rdfa/ctx-linked-resource}}
+            </span>
+          </td>
+
+
+          <td>
+            <span resource={{mandataris.uri}} typeof="ext:LidBijzonderComiteOpvolger">
+              <span property="mandaat:start" datatype="xsd:date" content={{moment-format mandataris.start 'YYYY-MM-DD'}}>
+                {{moment-format mandataris.start 'LL'}}
+              </span>
+            </span>
+          </td>
+
+          <td>
+            <span resource={{mandataris.uri}} typeof="ext:LidBijzonderComiteOpvolger">
+              <span property="mandaat:einde" datatype="xsd:date" content={{moment-format mandataris.einde 'YYYY-MM-DD'}}>
+                {{moment-format mandataris.einde 'LL'}}
+              </span>
+              <span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span>
+              <span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span>
+            </span>
+          </td>
+
+{{/if}}

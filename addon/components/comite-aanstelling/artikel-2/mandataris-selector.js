@@ -5,8 +5,8 @@ import { computed } from '@ember/object';
 export default Component.extend({
   layout,
 
-  options: computed('mandatarissen', 'mandatarissen.@each.isEffectief', function(){
-    return this.mandatarissen.filter(m => m.isEffectief == false);
+  options: computed('mandatarissen', 'mandatarissen.@each.{isEffectief,opvolgerVan,opvolgerPlaats,status}', function(){
+    return this.mandatarissen.filter(m => m.isEffectief == false && !m.opvolgerVan);
   }),
 
   actions: {
