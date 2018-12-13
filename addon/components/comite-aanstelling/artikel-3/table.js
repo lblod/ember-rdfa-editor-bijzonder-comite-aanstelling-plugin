@@ -1,23 +1,11 @@
 import Component from '@ember/component';
 import layout from '../../../templates/components/comite-aanstelling/artikel-3/table';
 import { computed } from '@ember/object';
+import sortName from '../../../utils/sort-mandataris-name';
 
 export default Component.extend({
   layout,
-  sortedMandatarissen: computed('mandatarissenZonderAfstand.[]', 'mandatarissenZonderAfstand.@each.isEffectief', function(){
-    return this.mandatarissenZonderAfstand.sort(this.sortMandataris).filter(m =>  m.isEffectief);
-  }),
-
-  sortMandataris(a,b){
-    return a.get('isBestuurlijkeAliasVan.gebruikteVoornaam').trim()
-      .localeCompare(b.get('isBestuurlijkeAliasVan.gebruikteVoornaam').trim());
-  },
-
-  didReceiveAttrs(){
-    this._super(...arguments);
-    if(!this.mandatarissen) return;
-
-    this.set('mandatarissenZonderAfstand', this.mandatarissen.filter(m => m.afstandVanMandaatStatus.key == 'geen'));
-  }
-  
+  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{isEffectief,status}', function(){
+    return this.mandatarissen.filter(m => m.afstandVanMandaatStatus.key == 'geen').sort(sortName).filter(m =>  m.isEffectief);
+  })
 });

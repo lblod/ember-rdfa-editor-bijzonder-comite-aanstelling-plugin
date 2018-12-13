@@ -1,15 +1,13 @@
 import Component from '@ember/component';
 import layout from '../../../templates/components/comite-aanstelling/artikel-1/table';
 import { computed } from '@ember/object';
+import sortName from '../../../utils/sort-mandataris-name'; 
 
 export default Component.extend({
   layout,
 
   sortedMandatarissen: computed('mandatarissen.[]', function(){
-    return this.mandatarissen.sort((a,b) => a.get('isBestuurlijkeAliasVan.gebruikteVoornaam')
-                                   .trim()
-                                   .localeCompare(b.get('isBestuurlijkeAliasVan.gebruikteVoornaam')
-                                                  .trim()));
+    return this.mandatarissen.sort(sortName);
   }),
 
   actions: {
