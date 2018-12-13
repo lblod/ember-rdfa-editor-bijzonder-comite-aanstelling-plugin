@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../../../templates/components/comite-aanstelling/artikel-1/table';
 import { computed } from '@ember/object';
-import sortName from '../../../utils/sort-mandataris-name'; 
+import sortName from '../../../utils/sort-mandataris-name';
 
 export default Component.extend({
   layout,
