@@ -5,7 +5,7 @@ import sortName from '../../../utils/sort-mandataris-name';
 
 export default Component.extend({
   layout,
-  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{isEffectief,status}', function(){
+  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{isEffectief,status,afstandVanMandaatStatus}', function(){
     return this.mandatarissen.filter(m => m.afstandVanMandaatStatus.key == 'geen').sort(sortName).filter(m =>  m.isEffectief);
   })
 });

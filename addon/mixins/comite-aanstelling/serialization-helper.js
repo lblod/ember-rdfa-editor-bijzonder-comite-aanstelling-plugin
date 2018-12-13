@@ -139,6 +139,7 @@ export default Mixin.create({
     mandataris.set('isBestuurlijkeAliasVan', persoon);
     mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
     mandataris.set('isEffectief', true);
+    mandataris.set('neemtAfstand', false);
     return mandataris;
   },
 
@@ -150,7 +151,9 @@ export default Mixin.create({
     for(let sUri of afstanden){
       let afstandStatus = triples.find(t =>  t.subject == sUri && t.predicate == `${this.expandedExt}noLidBijzonderComiteStatus`);
       afstandStatus = ((afstandStatus || {}).object || '').trim();
-      mandatarissen.pushObject(await this.loadMandatarisFromTriples(triples.filter((t) => t.subject === sUri), false, afstandStatus));
+      let afstander = await this.loadMandatarisFromTriples(triples.filter((t) => t.subject === sUri), false, afstandStatus);
+      afstander.set('neemtAfstand', true);
+      mandatarissen.pushObject(afstander);
     }
     return mandatarissen;
   },

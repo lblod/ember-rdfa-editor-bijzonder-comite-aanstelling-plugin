@@ -28,12 +28,13 @@ export default EmberObject.extend({
   start: null,
   einde: null,
   heeftLidmaatschap: null,
+
+  //only for this plugin
+  neemtAfstand: null,
   afstandVanMandaatStatus: null,
   opvolgerVan: null,
   opvolgerPlaats: null,
   isEffectief: null,
-
-  //only for this plugin
   opvolgers: null,
 
   rdfaBindings: { // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
