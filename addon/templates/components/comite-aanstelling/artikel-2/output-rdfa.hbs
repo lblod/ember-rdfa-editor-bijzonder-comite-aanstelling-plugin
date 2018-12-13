@@ -20,7 +20,9 @@
   </span>
 </span>
 <br>
-(Eventuele) opvolgers:
+<div style="margin-left:10%;">
+Opvolgers:
+{{#unless (is-empty sortedOpvolgers)}}
 <table class="data-table data-table--lined data-table--zebra data-table--tight">
   <thead>
     <tr>
@@ -31,8 +33,14 @@
     </tr>
   </thead>
   <tbody>
-  {{#each sortedOpvolgers as |opvolger|}}
-    {{comite-aanstelling/artikel-2/opvolgers/output-rdfa articleUri=articleUri articleTypeof=articleTypeOf mandataris=opvolger}}
-  {{/each}}
+    {{#each sortedOpvolgers as |opvolger|}}
+      {{comite-aanstelling/artikel-2/opvolgers/output-rdfa articleUri=articleUri articleTypeof=articleTypeOf mandataris=opvolger}}
+    {{/each}}
   </tbody>
 </table>
+<br>
+{{else}}
+Geen.
+<br>
+{{/unless}}
+</div>
