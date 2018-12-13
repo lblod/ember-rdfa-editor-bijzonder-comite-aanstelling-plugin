@@ -14,6 +14,7 @@ export default Component.extend({
     // mandataris.set('status', {label: '', uri: ''});
     mandataris.set('isBestuurlijkeAliasVan', persoon);
     mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
+    mandataris.set('isEffectief', true);
     this.set('selectedMandataris', mandataris);
   },
 
