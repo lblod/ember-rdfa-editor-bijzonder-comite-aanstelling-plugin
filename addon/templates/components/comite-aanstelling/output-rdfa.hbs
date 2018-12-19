@@ -11,15 +11,13 @@
        <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
        <ul class="bullet-list">
          {{#each artikel2Mandatarissen as |mandataris|}}
-           <li>
-             {{comite-aanstelling/artikel-2/output-rdfa
-               mandataris=mandataris
-               mandatarissen=mandatarissen
-               articleUri=a.articleUri
-               articleTypeof=a.typeof
-               nieuweStijl=nieuweStijl
-             }}
-           </li>
+           {{comite-aanstelling/artikel-2/output-rdfa
+             mandataris=mandataris
+             mandatarissen=mandatarissen
+             articleUri=a.articleUri
+             articleTypeof=a.typeof
+             nieuweStijl=nieuweStijl
+           }}
          {{/each}}
        </ul>
      </div>
