@@ -1,8 +1,8 @@
 <td>
   <strong>{{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}}</strong>
   <div class="col--4-12">
-    {{#wu-link-button class="button--small button--link u-spacer--left--tiny" isNarrow=true onClick=(action "toggleOpvolgers")}}
-      <i class="fa fa-plus"></i> opvolgers
+    {{#wu-link-button class="button--link u-spacer--left--tiny" isNarrow=true onClick=(action "toggleOpvolgers")}}
+      <i class="vi vi-edit"></i> Beheer opvolgers
     {{/wu-link-button}}
   </div>
   {{#if showOpvolgers}}

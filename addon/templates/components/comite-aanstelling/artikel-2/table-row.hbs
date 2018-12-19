@@ -1,9 +1,5 @@
 <td>
   <strong>{{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}}</strong>
-  <div class="col--4-12">
-    {{#wu-link-button class="button--small button--link u-spacer--left--tiny" isNarrow=true onClick=(action "toggleOpvolgers")}}
-      <i class="fa fa-plus"></i> opvolgers
-    {{/wu-link-button}}
   </div>
   {{#if showOpvolgers}}
     {{comite-aanstelling/artikel-2/opvolgers/table mandataris=mandataris mandatarissen=mandatarissen}}
@@ -11,6 +7,9 @@
 </td>
 <td>
     {{#wu-link-button class="button--alt button--small" isNarrow=true onClick=(action "remove")}}
-      <i class="vi vi-cross vi-u-s"></i>Wordt opvolger
+      <i class="vi vi-cross vi-u-s"></i> Verwijder uit lijst en stel aan als opvolger
+    {{/wu-link-button}}
+    {{#wu-link-button class="button--link u-spacer--left--tiny" isNarrow=true onClick=(action "toggleOpvolgers")}}
+      <i class="vi vi-edit"></i> Beheer opvolgers
     {{/wu-link-button}}
 </td>

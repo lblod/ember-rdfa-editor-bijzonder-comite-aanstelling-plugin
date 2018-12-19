@@ -1,7 +1,7 @@
 {{#if nieuweStijl}}
   {{!-- ************************************* NIEUWE STIJL *************************************--}}
-  <span resource={{articleUri}} typeof={{articleTypeof}}>
-    <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+  <div resource={{articleUri}} typeof={{articleTypeof}}>
+    <div property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
       {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
         {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
       {{/rdfa/ctx-linked-resource}}
@@ -19,8 +19,8 @@
       </span>
       <span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span>
       <span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span>
-    </span>
-  </span>
+    </div>
+  </div>
   <br>
   <div style="margin-left:10%;">
     Opvolgers:
@@ -48,8 +48,8 @@
   </div>
 {{else}}
   {{!-- ************************************* OLD SKOOL *************************************--}}
-  <span resource={{articleUri}} typeof={{articleTypeof}}>
-    <span property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+  <div resource={{articleUri}} typeof={{articleTypeof}}>
+    <div property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
       {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
         {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
       {{/rdfa/ctx-linked-resource}}
@@ -67,8 +67,8 @@
       </span>
       <span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span>
       <span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span>
-    </span>
-  </span>
+    </div>
+  </div>
   <br>
   <div style="margin-left:10%;">
     Opvolgers:
