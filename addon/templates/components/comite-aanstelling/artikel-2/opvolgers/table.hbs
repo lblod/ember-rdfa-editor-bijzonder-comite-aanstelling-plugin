@@ -1,4 +1,4 @@
-<table class="data-table data-table--lined data-table--zebra">
+<table class="data-table data-table--lined data-table--bordered data-table--white u-spacer--top--tiny">
   <thead>
     <tr>
       <th>Plaats opvolging</th>
@@ -21,6 +21,18 @@
   </thead>
   <tbody>
 
+  	{{#if sortedMandatarissen}}
+	    {{#each sortedMandatarissen as |mandataris|}}
+	      {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris}}
+	    {{/each}}
+  	{{else}}
+    	{{#unless addMandatarisMode}}
+		  	<tr>
+		  		<td colspan="3">Geen opvolgers aangeduid.</td>
+		  	</tr>
+	  	{{/unless}}
+  	{{/if}}
+
     {{#if addMandatarisMode}}
       {{comite-aanstelling/artikel-2/opvolgers/add-mandataris
         onCancel=(action "cancelAddMandataris")
@@ -29,9 +41,5 @@
         mandatarissen=mandatarissen
       }}
     {{/if}}
-
-    {{#each sortedMandatarissen as |mandataris|}}
-      {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris}}
-    {{/each}}
   </tbody>
 </table>
