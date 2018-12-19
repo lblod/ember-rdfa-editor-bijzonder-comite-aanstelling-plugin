@@ -3,12 +3,12 @@ import uuid from 'uuid/v4';
 
 const afstandMandaatStatus =
         [
-          { key: 'afstand', value: 'afstand Mandaat '},
-          { key: 'afwezigKennis', value: 'awezigheid met kennisgeving'},
-          { key: 'afwezigZonderKennis', value: 'afwezigheid zonder kennisgeving'},
-          { key: 'verkiesbaarheid', value: 'niet voldoen aan de verkiesbaarheidsvoorwaarden'},
-          { key: 'onverenigbaarheid', value: 'onverenigbaarheid'},
-          { key: 'geen', value: 'geen afstand'}
+          { key: 'afstand', value: 'Afstand mandaat '},
+          { key: 'afwezigKennis', value: 'Afwezigheid met kennisgeving'},
+          { key: 'afwezigZonderKennis', value: 'Afwezigheid zonder kennisgeving'},
+          { key: 'verkiesbaarheid', value: 'Voldoet niet aan de verkiesbaarheidsvoorwaarden'},
+          { key: 'onverenigbaarheid', value: 'Onverenigbaarheid'},
+          { key: 'geen', value: 'Opname mandaat'}
         ];
 
 const opvolgerPlaatsValues  = ['Eerste opvolger', 'Tweede opvolger'];

@@ -13,7 +13,7 @@ export default Component.extend({
     // mandataris.set('rangorde', '');
     // mandataris.set('status', {label: '', uri: ''});
     mandataris.set('isBestuurlijkeAliasVan', persoon);
-    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
+    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'Opname'));
     mandataris.set('isEffectief', true);
     mandataris.set('neemtAfstand', false);
     this.set('selectedMandataris', mandataris);
