@@ -76,10 +76,15 @@
         bestuurseenheid=bestuurseenheid
         statusCodes=mandatarisStatusCodes
       }}
-      {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen}}
+      {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
     {{/m.content}}
     <div class="modal-dialog__footer">
       {{#wu-button-group}}
+        <label class="checkbox checkbox--block u-spacer--bottom--small">
+          {{input class="checkbox__toggle" type="checkbox" checked=nieuweStijl click=(action "toggleNieuweStijl") }}
+          <span></span>
+          <strong>Voeg toe in nieuwe stijl</strong>
+        </label>
         {{wu-button label="Voeg tabel in" class="button button--narrow" onClick=(action 'insert')}}
         {{wu-button label="Annuleer" class="button button--alt button--narrow" onClick=(action 'togglePopup')}}
       {{/wu-button-group}}
