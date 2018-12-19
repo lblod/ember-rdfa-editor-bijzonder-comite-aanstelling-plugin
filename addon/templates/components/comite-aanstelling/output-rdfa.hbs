@@ -1,14 +1,12 @@
 {{#if nieuweStijl}}
   {{!-- ************************************* NIEUWE STIJL *************************************--}}
-  <p class="u-spacer--small">Beslist,</p>
-
   {{#comite-aanstelling/output-article as |a|}}
     {{comite-aanstelling/artikel-1/output-rdfa articleUri=a.articleUri articleTypeof=a.typeof mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
    {{/comite-aanstelling/output-article}}
 
    {{#comite-aanstelling/output-article as |a| }}
      <span property="eli:number">Artikel 2</span>
-     <span property="prov:value">
+     <div property="prov:value">
        <br>
        <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
        <ul>
@@ -24,19 +22,19 @@
            </li>
          {{/each}}
        </ul>
-     </span>
+     </div>
    {{/comite-aanstelling/output-article}}
 
    {{#comite-aanstelling/output-article as |a|}}
      <span property="eli:number">Artikel 3</span>
-     <span property="prov:value">
+     <div property="prov:value">
        {{comite-aanstelling/artikel-3/output-rdfa
          articleUri=a.articleUri
          articleTypeof=a.typeof
          mandatarissen=mandatarissen
          nieuweStijl=nieuweStijl
        }}
-     </span>
+     </div>
    {{/comite-aanstelling/output-article}}
 
    {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
@@ -51,7 +49,7 @@
 
    {{#comite-aanstelling/output-article as |a| }}
      <span property="eli:number">Artikel 2</span>
-     <span property="prov:value">
+     <div property="prov:value">
        <br>
        <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
        <ul>
@@ -67,19 +65,19 @@
            </li>
          {{/each}}
        </ul>
-     </span>
+     </div>
    {{/comite-aanstelling/output-article}}
 
    {{#comite-aanstelling/output-article as |a|}}
      <span property="eli:number">Artikel 3</span>
-     <span property="prov:value">
+     <div property="prov:value">
        {{comite-aanstelling/artikel-3/output-rdfa
          articleUri=a.articleUri
          articleTypeof=a.typeof
          mandatarissen=mandatarissen
          nieuweStijl=nieuweStijl
        }}
-     </span>
+     </div>
    {{/comite-aanstelling/output-article}}
 
    {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}

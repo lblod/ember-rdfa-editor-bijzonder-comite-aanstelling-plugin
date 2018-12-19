@@ -1,8 +1,8 @@
 {{#if nieuweStijl}}
   {{!-- ************************************* NIEUWE STIJL *************************************--}}
   <span property="eli:number">Artikel 1</span>
-  <span property="prov:value">
-    <p>Akte te nemen van:</p>
+  <div property="prov:value">
+    <p>De raad voor maatschappelijk welzijn neemt kennis van:</p>
     <br>
     {{#if artikel1Geen}}
       Het ontbreken van afstanden van mandaat;
@@ -11,7 +11,7 @@
         <!-- no text? -->
       {{else}}
         De afstand van mandaat van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1A as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -30,7 +30,7 @@
         <!-- no text? -->
       {{else}}
         De afwezigheid met kennisgeving van:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1AK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -49,7 +49,7 @@
         <!-- no text? -->
       {{else}}
         De afwezigheid zonder kennisgeving van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1AZK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -68,7 +68,7 @@
         <!-- no text? -->
       {{else}}
         Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1VK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -87,7 +87,7 @@
         <!-- no text? -->
       {{else}}
         Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1OV as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -102,11 +102,11 @@
         </ul>
       {{/if}}
     {{/if}}
-  </span>
+  </div>
 {{else}}
   {{!-- ************************************* OLD SKOOL *************************************--}}
   <span property="eli:number">Artikel 1</span>
-  <span property="prov:value">
+  <div property="prov:value">
     <p>Akte te nemen van:</p>
     <br>
     {{#if artikel1Geen}}
@@ -116,7 +116,7 @@
         <!-- no text? -->
       {{else}}
         De afstand van mandaat van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1A as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -135,7 +135,7 @@
         <!-- no text? -->
       {{else}}
         De afwezigheid met kennisgeving van:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1AK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -154,7 +154,7 @@
         <!-- no text? -->
       {{else}}
         De afwezigheid zonder kennisgeving van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1AZK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -173,7 +173,7 @@
         <!-- no text? -->
       {{else}}
         Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1VK as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -192,7 +192,7 @@
         <!-- no text? -->
       {{else}}
         Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:
-        <ul>
+        <ul class="bullet-list">
           {{#each artikel1OV as |mandataris|}}
             <li>
               <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
@@ -207,5 +207,5 @@
         </ul>
       {{/if}}
     {{/if}}
-  </span>
+  </div>
 {{/if}}

@@ -1,10 +1,10 @@
 {{#if nieuweStijl}}
   {{!-- ************************************* NIEUWE STIJL *************************************--}}
   {{#unless hasVerhinderd}}
-    Akte te nemen van het gegeven dat er geen leden van het bijzonder comité voor de sociale dienst verhinderd zijn.
+    De raad voor maatschappelijk welzijn neemt kennis dat er geen leden van het bijzonder comité voor de sociale dienst verhinderd zijn.
 {{else}}
-    Akte te nemen van de verhindering van volgende leden van het bijzonder comité voor de sociale dienst:
-    <ul>
+    De raad voor maatschappelijk welzijn neemt kennis van de verhindering van volgende leden van het bijzonder comité voor de sociale dienst:
+    <ul class="bullet-list">
       {{#each sortedMandatarissen as |mandataris|}}
         <li>
           {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};
@@ -18,7 +18,7 @@
     Akte te nemen van het gegeven dat er geen leden van het bijzonder comité voor de sociale dienst verhinderd zijn.
   {{else}}
     Akte te nemen van de verhindering van volgende leden van het bijzonder comité voor de sociale dienst:
-    <ul>
+    <ul class="bullet-list">
       {{#each sortedMandatarissen as |mandataris|}}
         <li>
           {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};

@@ -4,8 +4,8 @@
     {{#comite-aanstelling/output-article as |a|}}
       <span property="eli:number">Artikel 4</span>
       <span property="prov:value">
-        De geloofsbrieven van volgende opvolgers die de verhinderde raadsleden vervangen voor de duur van de verhindering, goed te keuren en akte te nemen van de eedaflegging:
-        <ul>
+        De geloofsbrieven van volgende opvolgers die de verhinderde raadsleden vervangen voor de duur van de verhindering, worden goedgekeurd en er wordt kennis genomen van de eedaflegging:
+        <ul class="bullet-list">
           {{#each sortedMandatarissen as |mandataris|}}
             <li>
               {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};
@@ -22,7 +22,7 @@
       <span property="eli:number">Artikel 4</span>
       <span property="prov:value">
         De geloofsbrieven van volgende opvolgers die de verhinderde raadsleden vervangen voor de duur van de verhindering, goed te keuren en akte te nemen van de eedaflegging:
-        <ul>
+        <ul class="bullet-list">
           {{#each sortedMandatarissen as |mandataris|}}
             <li>
               {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}};
