@@ -19,7 +19,7 @@ export default Component.extend({
       && this.artikel1AK.length == 0
       && this.artikel1AZK.length == 0
       && this.artikel1VK.length == 0
-      && this.artikel1OV.lenght == 0;
+      && this.artikel1OV.length == 0;
   }),
 
   artikel1A: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
