@@ -139,7 +139,9 @@ export default Mixin.create({
     const mandataris = MandatarisToCreate.create({});
     mandataris.set('bekleedt', this.comiteMandaat);
     mandataris.set('isBestuurlijkeAliasVan', persoon);
-    mandataris.set('status', {});
+    mandataris.set('status',
+                   this.mandatarisStatusCodes
+                   .find(c => c.uri == 'http://data.vlaanderen.be/id/concept/MandatarisStatusCode/21063a5b-912c-4241-841c-cc7fb3c73e75'));
     return mandataris;
   },
 
