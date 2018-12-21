@@ -1,0 +1,17 @@
+{{#if isOpvolger}}
+  <span typeof="ext:AfwezigeOpvolgerBijzonderComite" resource={{mandataris.uri}}>
+    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.status.key}}>&nbsp;</span>
+    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+    </span>
+  </span>
+{{else}}
+  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.status.key}}>&nbsp;</span>
+    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+    </span>
+  </span>
+{{/if}}

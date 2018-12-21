@@ -118,13 +118,10 @@ export default Mixin.create({
       mandatarissen.pushObject(await this.loadMandatarisFromTriples(triples.filter((t) => t.subject === resource.subject)));
     }
 
-    //load opvolgers
     mandatarissen = await this.loadOpvolgers(mandatarissen, triples);
 
-    mandatarissen = this.loadAfstanden(mandatarissen, triples);
+    mandatarissen = await this.loadAfstanden(mandatarissen, triples);
 
-
-    //load afstanden
     return mandatarissen;
    },
 
@@ -155,7 +152,6 @@ export default Mixin.create({
       let afstandStatus = triples.find(t =>  t.subject == sUri && t.predicate == `${this.expandedExt}noLidBijzonderComiteStatus`);
       afstandStatus = ((afstandStatus || {}).object || '').trim();
       let afstander = await this.loadMandatarisFromTriples(triples.filter((t) => t.subject === sUri), false, afstandStatus);
-      afstander.set('neemtAfstand', true);
       mandatarissen.pushObject(afstander);
     }
     return mandatarissen;
@@ -171,14 +167,22 @@ export default Mixin.create({
       mandatarissen.pushObject(await this.loadMandatarisFromTriples(triples.filter((t) => t.subject === sUri), false));
     }
 
-    let areOpvolger = mandatarissen.filter(m => m.get('opvolgerVanUri'));
+    let areOpvolgers = mandatarissen.filter(m => m.get('opvolgerVanUri'));
 
-    areOpvolger.forEach(o => {
+    areOpvolgers.forEach(o => {
       let mandataris = mandatarissen.find( m => m.uri == o.opvolgerVanUri );
       o.set('opvolgerVan', mandataris);
     });
 
-    this.set('opvolgers', areOpvolger);
+    this.set('opvolgers', areOpvolgers);
+
+    //if afwezig, onverenigbaar etc set it here.
+    areOpvolgers.forEach(o => {
+      let afstandStatus = triples.find(t =>  t.subject == o.uri && t.predicate == `${this.expandedExt}noLidBijzonderComiteStatus`);
+      afstandStatus = ((afstandStatus || {}).object || '').trim();
+      if(afstandStatus)
+        o.set('status', this.mandatarisStatusCodes.find(s =>  s.key == afstandStatus));
+    });
 
     //remove duplicates
     mandatarissen = mandatarissen.filter(m => !m.opvolgerVan);
@@ -209,6 +213,7 @@ export default Mixin.create({
       let status  = this.mandatarisStatusCodes.find(c => c.uri == statusUri);
       mandataris.set('status', status || {label: '', uri: ''});
     }
+
     if(afstandStatus){
       mandataris.set('status', this.mandatarisStatusCodes.find(s =>  s.key == afstandStatus));
     }
