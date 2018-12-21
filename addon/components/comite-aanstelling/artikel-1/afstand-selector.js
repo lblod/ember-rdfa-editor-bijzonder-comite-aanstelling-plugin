@@ -19,7 +19,7 @@ export default Component.extend({
         });
 
         //find opvolgers with same persoon
-        this.opvolgers.filter(m => m.isBestuurlijkeAliasVan.uri == this.mandataris.isBestuurlijkeAliasVan.uri).forEach(m => {
+        this.opvolgers.filter(m => m.get('isBestuurlijkeAliasVan.uri') == this.mandataris.get('isBestuurlijkeAliasVan.uri')).forEach(m => {
           this.opvolgers.removeObject(m);
         });
       }

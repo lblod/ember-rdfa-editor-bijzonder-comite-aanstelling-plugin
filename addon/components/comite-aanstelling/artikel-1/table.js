@@ -10,9 +10,9 @@ export default Component.extend({
   sortedMandatarissen: computed('mandatarissen.[]', 'opvolgers.[]', function(){
     //Personen moeten maar een keer verschijnen.
     let combinedList = [...this.mandatarissen.toArray(), ... this.opvolgers.toArray()];
-    let persoonUris = combinedList.map(m => m.isBestuurlijkeAliasVan.uri);
+    let persoonUris = combinedList.map(m => m.get('isBestuurlijkeAliasVan.uri'));
     persoonUris = [...new Set(persoonUris)];
-    return persoonUris.map(p => combinedList.find(m => m.isBestuurlijkeAliasVan.uri == p)).sort(sortName);
+    return persoonUris.map(p => combinedList.find(m => m.get('isBestuurlijkeAliasVan.uri') == p)).sort(sortName);
   }),
 
   actions: {
@@ -22,7 +22,7 @@ export default Component.extend({
       });
 
       //find opvolgers with same persoon
-      this.opvolgers.filter(m => m.isBestuurlijkeAliasVan.uri == mandataris.isBestuurlijkeAliasVan.uri).forEach(m => {
+      this.opvolgers.filter(m => m.get('isBestuurlijkeAliasVan.uri') == mandataris.get('isBestuurlijkeAliasVan.uri')).forEach(m => {
         this.opvolgers.removeObject(m);
       });
 
