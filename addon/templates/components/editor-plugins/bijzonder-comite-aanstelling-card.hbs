@@ -5,21 +5,21 @@
         <p class="loader"><span class="u-visually-hidden">Aan het laden</span></p>
       {{else}}
         {{#if bestuursorgaan}}
-	        {{#if mandatarissen}}
-	          <p class="u-spacer--tiny">
-	            Wil u graag de tabel beheren voor het <strong> bijzonder-comité</strong>?
-	          </p>
-	        {{else}}
-	          <p>Er werden geen OCMW-raadsleden gevonden.</p>
-	          <br>
-	          <p>Meld u aan als gemeenteraad. <strong>Synchroniseer de gegevens in de notulen van de gemeenteraad</strong>, en meld u daarna weer aan als OCMW om verder te gaan in deze notulen.</p>
-	          <br>
-	          <p class="small">Meer informatie over gegevens synchroniseren naar de OCMW-raad in <a href="https://gelinkt-notuleren.vlaanderen.be/handleiding/#notuleren-synchroniseren" target="_blank">de handleiding</a>.</p>
-	        {{/if}}
-	      {{else}}
-        	<p class="u-spacer--tiny"><strong>Gelieve eerst een bestuursorgaan te selecteren</strong> om de aanstelling van de leden van het bijzonder comité voor de sociale dienst te beheren.</p>
-	      {{/if}}
-	    {{/if}}
+          {{#if mandatarissen}}
+            <p class="u-spacer--tiny">
+              Wil u graag de tabel beheren voor het <strong> bijzonder-comité</strong>?
+            </p>
+          {{else}}
+            <p>Er werden geen OCMW-raadsleden gevonden.</p>
+            <br>
+            <p>Meld u aan als gemeenteraad. <strong>Synchroniseer de gegevens in de notulen van de gemeenteraad</strong>, en meld u daarna weer aan als OCMW om verder te gaan in deze notulen.</p>
+            <br>
+            <p class="small">Meer informatie over gegevens synchroniseren naar de OCMW-raad in <a href="https://gelinkt-notuleren.vlaanderen.be/handleiding/#notuleren-synchroniseren" target="_blank">de handleiding</a>.</p>
+          {{/if}}
+        {{else}}
+          <p class="u-spacer--tiny"><strong>Gelieve eerst een bestuursorgaan te selecteren</strong> om de aanstelling van de leden van het bijzonder comité voor de sociale dienst te beheren.</p>
+        {{/if}}
+      {{/if}}
     </div>
   </div>
 </div>
@@ -79,8 +79,9 @@
         bestuursorgaan=bestuursorgaan
         bestuurseenheid=bestuurseenheid
         statusCodes=mandatarisStatusCodes
+        opvolgers=opvolgers
       }}
-      {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
+      {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
     {{/m.content}}
     <div class="modal-dialog__footer">
       {{#wu-button-group}}

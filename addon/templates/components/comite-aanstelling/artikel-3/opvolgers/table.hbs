@@ -11,14 +11,14 @@
     </tr>
   </thead>
   <tbody>
-  	{{#if sortedMandatarissen}}
-	    {{#each sortedMandatarissen as |mandataris|}}
-	      {{comite-aanstelling/artikel-3/opvolgers/table-row mandataris=mandataris statusCodes=statusCodes}}
-	    {{/each}}
-  	{{else}}
-	  	<tr>
-	  		<td colspan="5">Geen opvolgers aangeduid.</td>
-	  	</tr>
-  	{{/if}}
+    {{#if sortedMandatarissen}}
+      {{#each sortedMandatarissen as |mandataris|}}
+        {{comite-aanstelling/artikel-3/opvolgers/table-row mandataris=mandataris statusCodes=statusCodes}}
+      {{/each}}
+    {{else}}
+      <tr>
+        <td colspan="5">Geen opvolgers aangeduid.</td>
+      </tr>
+    {{/if}}
   </tbody>
 </table>

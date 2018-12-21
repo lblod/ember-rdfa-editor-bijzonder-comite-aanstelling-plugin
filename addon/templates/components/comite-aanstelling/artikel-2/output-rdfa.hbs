@@ -1,56 +1,56 @@
 <div resource={{articleUri}} typeof={{articleTypeof}}>
   <div property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
-  	<p>
-  		<strong>
-	      {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
-	        {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
-	      {{/rdfa/ctx-linked-resource}}
-	    </strong>
+    <p>
+      <strong>
+        {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}
+          {{persoon.prop resource=model p="gebruikteVoornaam"}} {{persoon.prop resource=model p="achternaam"}}
+        {{/rdfa/ctx-linked-resource}}
+      </strong>
     </p>
     <br>
     <p>
-    	{{#if mandataris.start}}
+      {{#if mandataris.start}}
         Startdatum:
-    		<span property="mandaat:start" datatype="xsd:date" content={{moment-format mandataris.start 'YYYY-MM-DD'}}>
+        <span property="mandaat:start" datatype="xsd:date" content={{moment-format mandataris.start 'YYYY-MM-DD'}}>
           {{moment-format mandataris.start 'LL'}}
-	      </span>
-  		{{else}}
-    		Geen startdatum opgegegeven.
+        </span>
+      {{else}}
+        Geen startdatum opgegegeven.
       {{/if}}
     </p>
-  	<p>
+    <p>
       {{#if mandataris.einde}}
         Einddatum:
-	      <span property="mandaat:einde" datatype="xsd:date" content={{moment-format mandataris.einde 'YYYY-MM-DD'}}>
+        <span property="mandaat:einde" datatype="xsd:date" content={{moment-format mandataris.einde 'YYYY-MM-DD'}}>
           {{moment-format mandataris.einde 'LL'}}
         </span>
-  		{{else}}
-    		Geen einddatum.
+      {{else}}
+        Geen einddatum.
       {{/if}}
-  	</p>
-  	<p class="u-hidden"><span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span></p>
-  	<p class="u-hidden"><span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span></p>
-  	<br>
-	  {{#unless (is-empty sortedOpvolgers)}}
-		  <p>Opvolgers:</p>
-		  <table class="data-table data-table--lined data-table--zebra data-table--tight u-spacer--top--small">
-		    <thead>
-		      <tr>
-		        <th>Plaats opvolging</th>
-		        <th>Officiële naam</th>
-		        <th>Begindatum</th>
-		        <th>Einddatum</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      {{#each sortedOpvolgers as |opvolger|}}
-		        {{comite-aanstelling/artikel-2/opvolgers/output-rdfa articleUri=articleUri articleTypeof=articleTypeOf mandataris=opvolger nieuweStijl=nieuweStijl}}
-		      {{/each}}
-		    </tbody>
-		  </table>
-	  {{else}}
-	    <p>Geen opvolgers.</p>
-		{{/unless}}
+    </p>
+    <p class="u-hidden"><span property="mandaat:status" resource={{mandataris.status.uri}}>&nbsp;</span></p>
+    <p class="u-hidden"><span property="org:holds" resource={{mandataris.bekleedt.uri}}>&nbsp;</span></p>
+    <br>
+    {{#unless (is-empty sortedOpvolgers)}}
+      <p>Opvolgers:</p>
+      <table class="data-table data-table--lined data-table--zebra data-table--tight u-spacer--top--small">
+        <thead>
+          <tr>
+            <th>Plaats opvolging</th>
+            <th>Officiële naam</th>
+            <th>Begindatum</th>
+            <th>Einddatum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each sortedOpvolgers as |opvolger|}}
+            {{comite-aanstelling/artikel-2/opvolgers/output-rdfa articleUri=articleUri articleTypeof=articleTypeOf mandataris=opvolger nieuweStijl=nieuweStijl}}
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>Geen opvolgers.</p>
+    {{/unless}}
   </div>
 </div>
 <br>

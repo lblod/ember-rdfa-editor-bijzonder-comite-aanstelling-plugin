@@ -17,6 +17,7 @@
              articleUri=a.articleUri
              articleTypeof=a.typeof
              nieuweStijl=nieuweStijl
+             opvolgers=opvolgers
            }}
          {{/each}}
        </ul>
@@ -31,11 +32,12 @@
          articleTypeof=a.typeof
          mandatarissen=mandatarissen
          nieuweStijl=nieuweStijl
+         opvolgers=opvolgers
        }}
      </div>
    {{/comite-aanstelling/output-article}}
 
-   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
+   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
 {{else}}
    {{!-- ************************************* OLD SKOOL *************************************--}}
 
@@ -58,6 +60,7 @@
              articleUri=a.articleUri
              articleTypeof=a.typeof
              nieuweStijl=nieuweStijl
+             opvolgers=opvolgers
            }}
          {{/each}}
        </ul>
@@ -72,11 +75,12 @@
          articleTypeof=a.typeof
          mandatarissen=mandatarissen
          nieuweStijl=nieuweStijl
+         opvolgers=opvolgers
        }}
      </div>
    {{/comite-aanstelling/output-article}}
 
-   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
+   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
 {{/if}}
 
 {{yield}}

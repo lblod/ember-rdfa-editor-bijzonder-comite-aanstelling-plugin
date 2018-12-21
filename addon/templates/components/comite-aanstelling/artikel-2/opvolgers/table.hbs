@@ -21,17 +21,17 @@
   </thead>
   <tbody>
 
-  	{{#if sortedMandatarissen}}
-	    {{#each sortedMandatarissen as |mandataris|}}
-	      {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris}}
-	    {{/each}}
-  	{{else}}
-    	{{#unless addMandatarisMode}}
-		  	<tr>
-		  		<td colspan="3">Geen opvolgers aangeduid.</td>
-		  	</tr>
-	  	{{/unless}}
-  	{{/if}}
+    {{#if sortedMandatarissen}}
+      {{#each sortedMandatarissen as |mandataris|}}
+        {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris}}
+      {{/each}}
+    {{else}}
+      {{#unless addMandatarisMode}}
+        <tr>
+          <td colspan="3">Geen opvolgers aangeduid.</td>
+        </tr>
+      {{/unless}}
+    {{/if}}
 
     {{#if addMandatarisMode}}
       {{comite-aanstelling/artikel-2/opvolgers/add-mandataris
@@ -39,6 +39,7 @@
         onSave=(action "saveAddMandataris")
         bestuursorgaan=bestuursorgaan
         mandatarissen=mandatarissen
+        kandidaatOpvolgers=kandidaatOpvolgers
       }}
     {{/if}}
   </tbody>

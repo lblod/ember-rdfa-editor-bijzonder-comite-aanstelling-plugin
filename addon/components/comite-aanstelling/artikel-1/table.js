@@ -8,7 +8,10 @@ export default Component.extend({
   layout,
 
   sortedMandatarissen: computed('mandatarissen.[]', function(){
-    return this.mandatarissen.sort(sortName);
+    //Personen moeten maar een keer goed verschijnen.
+    let persoonUris = this.mandatarissen.map(m => m.isBestuurlijkeAliasVan.uri).toArray();
+    persoonUris = [...new Set(persoonUris)];
+    return persoonUris.map(p => this.mandatarissen.find(m => m.isBestuurlijkeAliasVan.uri == p));
   }),
 
   actions: {

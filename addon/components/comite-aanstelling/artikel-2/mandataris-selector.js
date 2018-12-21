@@ -6,7 +6,7 @@ export default Component.extend({
   layout,
 
   options: computed('mandatarissen', 'mandatarissen.@each.{isEffectief,opvolgerVan,opvolgerPlaats,status,neemtAfstand}', function(){
-    return this.mandatarissen.filter(m => m.isEffectief == false && !m.opvolgerVan && !m.neemtAfstand);
+    return this.mandatarissen.filter(m => !m.neemtAfstand);
   }),
 
   actions: {

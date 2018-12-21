@@ -5,117 +5,117 @@
     <p>De raad voor maatschappelijk welzijn neemt kennis van:</p>
     <br>
     <ul class="bullet-list">
-	    {{#if artikel1Geen}}
-		    <li>
-		      <p>Het ontbreken van afstanden van mandaat;</p>
-		    </li>
-	    {{else}}
-	      {{#if (is-empty artikel1A)}}
-	        <!-- no text? -->
-	      {{else}}
-	      	<li>
-		        <p>De afstand van mandaat van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1A as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+      {{#if artikel1Geen}}
+        <li>
+          <p>Het ontbreken van afstanden van mandaat;</p>
+        </li>
+      {{else}}
+        {{#if (is-empty artikel1A)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afstand van mandaat van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1A as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1AK)}}
-	        <!-- no text? -->
-	      {{else}}
-	      	<li>
-		        <p>De afwezigheid met kennisgeving van:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1AK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1AK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afwezigheid met kennisgeving van:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1AK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1AZK)}}
-	        <!-- no text? -->
-	      {{else}}
-		      <li>
-		        <p>De afwezigheid zonder kennisgeving van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1AZK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1AZK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afwezigheid zonder kennisgeving van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1AZK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1VK)}}
-	        <!-- no text? -->
-	      {{else}}
-	      	<li>
-		        <p>Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1VK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1VK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1VK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1OV)}}
-	        <!-- no text? -->
-	      {{else}}
-		      <li>
-		        <p>Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1OV as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
-	    {{/if}}
-	  </ul>
+        {{#if (is-empty artikel1OV)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1OV as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
+      {{/if}}
+    </ul>
   </div>
 {{else}}
   {{!-- ************************************* OLD SKOOL *************************************--}}
@@ -124,116 +124,116 @@
     <p>Akte te nemen van:</p>
     <br>
     <ul class="bullet-list">
-	    {{#if artikel1Geen}}
-	    	<li>
-	      	<p>Het ontbreken van afstanden van mandaat;</p>
-	     	</li>
-	    {{else}}
-	      {{#if (is-empty artikel1A)}}
-	        <!-- no text? -->
-	      {{else}}
-		      <li>
-		        <p>De afstand van mandaat van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1A as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+      {{#if artikel1Geen}}
+        <li>
+          <p>Het ontbreken van afstanden van mandaat;</p>
+        </li>
+      {{else}}
+        {{#if (is-empty artikel1A)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afstand van mandaat van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1A as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1AK)}}
-	        <!-- no text? -->
-	      {{else}}
-	      	<li>
-		        <p>De afwezigheid met kennisgeving van:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1AK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1AK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afwezigheid met kennisgeving van:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1AK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1AZK)}}
-	        <!-- no text? -->
-	      {{else}}
-		      <li>
-		        <p>De afwezigheid zonder kennisgeving van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1AZK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1AZK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>De afwezigheid zonder kennisgeving van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1AZK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1VK)}}
-	        <!-- no text? -->
-	      {{else}}
-	      	<li>
-		        <p>Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1VK as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
+        {{#if (is-empty artikel1VK)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>Het niet voldoen aan de verkiesbaarheidsvoorwaarden van:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1VK as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
 
-	      {{#if (is-empty artikel1OV)}}
-	        <!-- no text? -->
-	      {{else}}
-		      <li>
-		        <p>Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:</p>
-		        <ul class="bullet-list u-spacer">
-		          {{#each artikel1OV as |mandataris|}}
-		            <li>
-		              <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
-		                <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
-		                <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
-		                  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
-		                  {{mandataris.isBestuurlijkeAliasVan.achternaam}};
-		                </span>
-		              </span>
-		            </li>
-		          {{/each}}
-		        </ul>
-		      </li>
-	      {{/if}}
-	    {{/if}}
-	  </ul>
+        {{#if (is-empty artikel1OV)}}
+          <!-- no text? -->
+        {{else}}
+          <li>
+            <p>Het bestaan van een situatie van onverenigbaarheid in hoofde van volgende verkozenen:</p>
+            <ul class="bullet-list u-spacer">
+              {{#each artikel1OV as |mandataris|}}
+                <li>
+                  <span typeof="ext:NoLidBijzonderComite" resource={{mandataris.uri}}>
+                    <span property="ext:noLidBijzonderComiteStatus" content={{mandataris.afstandVanMandaatStatus.key}}>&nbsp;</span>
+                    <span property="mandaat:isBestuurlijkeAliasVan" resource={{mandataris.isBestuurlijkeAliasVan.uri}}>
+                      {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}}
+                      {{mandataris.isBestuurlijkeAliasVan.achternaam}};
+                    </span>
+                  </span>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/if}}
+      {{/if}}
+    </ul>
   </div>
 {{/if}}

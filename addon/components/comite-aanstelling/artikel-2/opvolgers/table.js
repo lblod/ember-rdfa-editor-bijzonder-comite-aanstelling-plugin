@@ -22,6 +22,7 @@ export default Component.extend({
 
     saveAddMandataris(mandataris){
       mandataris.set('opvolgerVan', this.mandataris);
+      this.mandatarissen.pushObject(mandataris);
       this.set('addMandatarisMode', false);
     }
   }

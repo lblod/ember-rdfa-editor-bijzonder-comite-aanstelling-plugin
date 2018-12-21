@@ -128,6 +128,7 @@ export default Mixin.create({
       mandatarissen.pushObject(await this.initNewComite(persoon));
     }
     this.set('mandatarissen', mandatarissen);
+    this.set('opvolgers', A());
   },
 
   async initNewComite(persoon) {
@@ -174,6 +175,8 @@ export default Mixin.create({
       let mandataris = mandatarissen.find( m => m.uri == o.opvolgerVanUri );
       o.set('opvolgerVan', mandataris);
     });
+
+    this.set('opvolgers', areOpvolger);
 
     return mandatarissen;
   },
