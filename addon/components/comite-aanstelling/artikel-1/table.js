@@ -7,18 +7,23 @@ import getOpvolgers from '../../../utils/get-opvolgers';
 export default Component.extend({
   layout,
 
-  sortedMandatarissen: computed('mandatarissen.[]', function(){
-    //Personen moeten maar een keer goed verschijnen.
-    let persoonUris = this.mandatarissen.map(m => m.isBestuurlijkeAliasVan.uri).toArray();
+  sortedMandatarissen: computed('mandatarissen.[]', 'opvolgers.[]', function(){
+    //Personen moeten maar een keer verschijnen.
+    let combinedList = [...this.mandatarissen.toArray(), ... this.opvolgers.toArray()];
+    let persoonUris = combinedList.map(m => m.isBestuurlijkeAliasVan.uri);
     persoonUris = [...new Set(persoonUris)];
-    return persoonUris.map(p => this.mandatarissen.find(m => m.isBestuurlijkeAliasVan.uri == p));
+    return persoonUris.map(p => combinedList.find(m => m.isBestuurlijkeAliasVan.uri == p)).sort(sortName);
   }),
 
   actions: {
     remove(mandataris){
-      getOpvolgers(this.mandatarissen, mandataris).forEach(m => {
-        m.set('opvolgerVan', null);
-        m.set('opvolgerPlaats', null);
+      getOpvolgers(this.opvolgers, mandataris).forEach(m => {
+        this.opvolgers.removeObject(m);
+      });
+
+      //find opvolgers with same persoon
+      this.opvolgers.filter(m => m.isBestuurlijkeAliasVan.uri == mandataris.isBestuurlijkeAliasVan.uri).forEach(m => {
+        this.opvolgers.removeObject(m);
       });
 
       this.mandatarissen.removeObject(mandataris);

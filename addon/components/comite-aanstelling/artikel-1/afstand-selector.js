@@ -14,9 +14,13 @@ export default Component.extend({
         this.mandataris.set('isEffectief', false);
         this.mandataris.set('opvolgerVan', null);
         this.mandataris.set('opvolgerPlaats', null);
-        getOpvolgers(this.mandatarissen, this.mandataris).forEach(m => {
-        m.set('opvolgerVan', null);
-          m.set('opvolgerPlaats', null);
+        getOpvolgers(this.opvolgers, this.mandataris).forEach(m => {
+          this.opvolgers.removeObject(m);
+        });
+
+        //find opvolgers with same persoon
+        this.opvolgers.filter(m => m.isBestuurlijkeAliasVan.uri == this.mandataris.isBestuurlijkeAliasVan.uri).forEach(m => {
+          this.opvolgers.removeObject(m);
         });
       }
       else{
