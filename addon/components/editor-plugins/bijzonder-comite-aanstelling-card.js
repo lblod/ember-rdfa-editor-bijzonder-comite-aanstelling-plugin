@@ -62,6 +62,10 @@ export default Component.extend(SerializationHelper, {
    if(this.info.editMode){
      try{
        yield this.loadDataEditMode();
+       if(this.mandatarissen.length == 0){
+         //user might have broken the table. Reload it here
+         yield this.loadDataInitialMode();
+       }
      }
      catch(error){
        console.log('------ issues loading mandatarissen bijzonder comite');
