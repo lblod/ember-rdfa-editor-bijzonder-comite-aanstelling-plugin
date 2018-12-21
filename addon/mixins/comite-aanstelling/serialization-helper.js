@@ -178,6 +178,9 @@ export default Mixin.create({
 
     this.set('opvolgers', areOpvolger);
 
+    //remove duplicates
+    mandatarissen = mandatarissen.filter(m => !m.opvolgerVan);
+
     return mandatarissen;
   },
 
