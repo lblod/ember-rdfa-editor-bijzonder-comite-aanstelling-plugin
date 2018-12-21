@@ -191,7 +191,7 @@ export default Mixin.create({
   },
 
 
-  async loadMandatarisFromTriples(triples, isEffectief = true, afstandStatus = 'geen'){
+  async loadMandatarisFromTriples(triples, isEffectief = true, afstandStatus = undefined){
     const mandataris = MandatarisToCreate.create({ uri: triples[0].subject});
     mandataris.set('bekleedt', this.comiteMandaat);
     mandataris.set('start', ((triples.find(t => t.predicate === mandataris.rdfaBindings.start)) || {}).object);
@@ -209,10 +209,9 @@ export default Mixin.create({
       let status  = this.mandatarisStatusCodes.find(c => c.uri == statusUri);
       mandataris.set('status', status || {label: '', uri: ''});
     }
-
-    //since effective
-    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == afstandStatus));
-    mandataris.set('isEffectief', isEffectief);
+    if(afstandStatus){
+      mandataris.set('status', this.mandatarisStatusCodes.find(s =>  s.key == afstandStatus));
+    }
 
     let opvolgerVanUri = triples.find(t => t.predicate === `${this.expandedExt}lidBijzonderComiteOpvolgerVan`);
     let opvolgerPlaats = triples.find(t => t.predicate === `${this.expandedExt}lidBijzonderComiteOpvolgerPlaats`);

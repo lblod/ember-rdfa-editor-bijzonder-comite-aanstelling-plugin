@@ -7,6 +7,6 @@ export default Component.extend({
   layout,
 
   artikel2Mandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{status,opvolgerVan,opvolgerPlaats}', function(){
-    return this.mandatarissen.sort(sortMandataris);
+    return this.mandatarissen.filter(m => m.status.uri).sort(sortMandataris);
   })
 });
