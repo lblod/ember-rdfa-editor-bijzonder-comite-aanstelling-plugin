@@ -59,8 +59,17 @@ export default Component.extend(SerializationHelper, {
 
  loadData: task(function *(){
     yield this.setProperties();
-    if(this.info.editMode)
-      yield this.loadDataEditMode();
+   if(this.info.editMode){
+     try{
+       yield this.loadDataEditMode();
+     }
+     catch(error){
+       console.log('------ issues loading mandatarissen bijzonder comite');
+       //issues might occur because of big refactoring of code.
+       //So silent fallback reload this.
+       yield this.loadDataInitialMode();
+     }
+   }
     else
       yield this.loadDataInitialMode();
   }),
