@@ -23,7 +23,7 @@
 
     {{#if sortedMandatarissen}}
       {{#each sortedMandatarissen as |mandataris|}}
-        {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris}}
+        {{comite-aanstelling/artikel-2/opvolgers/table-row mandataris=mandataris onRemove=(action "onRemove") comiteMandaat=comiteMandaat}}
       {{/each}}
     {{else}}
       {{#unless addMandatarisMode}}
@@ -40,6 +40,7 @@
         bestuursorgaan=bestuursorgaan
         mandatarissen=mandatarissen
         kandidaatOpvolgers=kandidaatOpvolgers
+        comiteMandaat=comiteMandaat
       }}
     {{/if}}
   </tbody>

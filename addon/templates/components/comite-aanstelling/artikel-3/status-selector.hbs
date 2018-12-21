@@ -6,7 +6,11 @@
      onchange=(action "select")
      renderInPlace=true
      as |status|}}
-    {{status.label}}
+    {{#if status.label}}
+      {{status.label}}
+    {{else}}
+      {{status.value}}
+    {{/if}}
   {{/power-select}}
 {{else}}
   Aan het laden...

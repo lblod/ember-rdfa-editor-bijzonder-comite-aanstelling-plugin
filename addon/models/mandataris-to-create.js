@@ -6,9 +6,7 @@ const afstandMandaatStatus =
           { key: 'afstand', value: 'Afstand mandaat '},
           { key: 'afwezigKennis', value: 'Afwezigheid met kennisgeving'},
           { key: 'afwezigZonderKennis', value: 'Afwezigheid zonder kennisgeving'},
-          { key: 'verkiesbaarheid', value: 'Voldoet niet aan de verkiesbaarheidsvoorwaarden'},
-          { key: 'onverenigbaarheid', value: 'Onverenigbaarheid'},
-          { key: 'geen', value: 'Opname mandaat'}
+          { key: 'onverenigbaarheid', value: 'Situatie van onverenigbaarheid'}
         ];
 
 const opvolgerPlaatsValues  = ['Eerste opvolger', 'Tweede opvolger'];
@@ -30,11 +28,8 @@ export default EmberObject.extend({
   heeftLidmaatschap: null,
 
   //only for this plugin
-  neemtAfstand: null,
-  afstandVanMandaatStatus: null,
   opvolgerVan: null,
   opvolgerPlaats: null,
-  isEffectief: null,
   opvolgers: null,
 
   rdfaBindings: { // eslint-disable-line ember/avoid-leaking-state-in-ember-objects

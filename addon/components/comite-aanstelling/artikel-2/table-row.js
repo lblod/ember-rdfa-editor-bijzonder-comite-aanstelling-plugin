@@ -8,6 +8,7 @@ export default Component.extend({
 
   actions: {
     remove(){
+      //TODO:  this still needed?
       this.mandataris.set('start', null);
       this.mandataris.set('einde', null);
       this.mandataris.set('isEffectief', false);
@@ -15,6 +16,7 @@ export default Component.extend({
         m.set('opvolgerVan', null);
         m.set('opvolgerPlaats', null);
       });
+      this.onRemove(this.mandataris);
     },
     toggleOpvolgers(){
       this.toggleProperty('showOpvolgers');

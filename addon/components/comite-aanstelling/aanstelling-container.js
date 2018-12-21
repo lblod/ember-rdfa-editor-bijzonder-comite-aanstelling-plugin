@@ -7,7 +7,7 @@ export default Component.extend({
 
   didReceiveAttrs(){
     this._super(...arguments);
-    this.set('artikel', 1);
+    this.set('artikel', 2);
   },
 
   actions: {

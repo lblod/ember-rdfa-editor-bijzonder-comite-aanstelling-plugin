@@ -7,7 +7,12 @@ import getOpvolgers from '../../../utils/get-opvolgers';
 export default Component.extend({
   layout,
   tagName: 'li',
-  sortedOpvolgers: computed('opvolgers.[]', 'opvolgers.@each.{isEffectief,afstandVanMandaatStatus,opvolgerVan,opvolgerPlaats,status}', function(){
+
+  isMandatarisEffectief: computed('mandataris', 'mandataris.status', function(){
+    return this.mandataris.status && this.mandataris.status.uri;
+  }),
+
+  sortedOpvolgers: computed('opvolgers.[]', 'opvolgers.@each.{opvolgerVan,opvolgerPlaats,status}', function(){
     return getOpvolgers(this.opvolgers, this.mandataris).sort(plaatsSort);
   })
 });

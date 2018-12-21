@@ -6,10 +6,13 @@ export default Component.extend({
   tagName: 'tr',
   actions: {
     remove(){
+      //TODO: required?
       this.mandataris.set('opvolgerVan', null);
       this.mandataris.set('opvolgerPlaats', null);
       this.mandataris.set('start', null);
       this.mandataris.set('einde', null);
+      
+      this.onRemove(this.mandataris);
     }
   }
 });

@@ -1,11 +1,1 @@
-{{#power-select
-   noMatchesMessage="Geen opvolgers beschikbaar. Zoek opvolgers uit deze lijst en klik op \"Haal uit lijst en stel aan als opvolger\"."
-   options=options
-   selected=mandataris
-   onchange=(action "select")
-   renderInPlace=true
-   allowClear=true
-   placeholder="Zoek opvolger"
-   as |mandataris|}}
-  {{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}} ({{moment-format mandataris.isBestuurlijkeAliasVan.geboorte.datum 'DD/MM/YYYY'}})
-{{/power-select}}
+{{comite-aanstelling/personen-selector onSelect=(action "select") bestuursorgaan=bestuursorgaan}}

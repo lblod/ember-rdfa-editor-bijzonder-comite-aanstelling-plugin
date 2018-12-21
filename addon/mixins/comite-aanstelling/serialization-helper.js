@@ -31,9 +31,16 @@ export default Mixin.create({
   },
 
   async setMandatarisStatusCodes(){
-    let codes = await this.store.findAll('mandataris-status-code');
+    let codes = (await this.store.findAll('mandataris-status-code')).toArray();
     //Remove titelVoerend
     codes = codes.filter(c => c.uri != 'http://data.vlaanderen.be/id/concept/MandatarisStatusCode/aacb3fed-b51d-4e0b-a411-f3fa641da1b3');
+
+    //Replace label effectief with opname mandaat
+    let code = codes.find(c => c.uri == 'http://data.vlaanderen.be/id/concept/MandatarisStatusCode/21063a5b-912c-4241-841c-cc7fb3c73e75');
+    code.set('label', 'Opname mandaat');
+
+    codes = [...codes, ...afstandMandaatStatus];
+
     this.set('mandatarisStatusCodes', codes);
   },
 
@@ -133,14 +140,9 @@ export default Mixin.create({
 
   async initNewComite(persoon) {
     const mandataris = MandatarisToCreate.create({});
-    // mandataris.set('bekleedt', this.comiteMandaat);
-    // mandataris.set('rangorde', '');
-    // mandataris.set('status', {label: '', uri: ''});
     mandataris.set('bekleedt', this.comiteMandaat);
     mandataris.set('isBestuurlijkeAliasVan', persoon);
-    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
-    mandataris.set('isEffectief', true);
-    mandataris.set('neemtAfstand', false);
+    mandataris.set('status', {});
     return mandataris;
   },
 

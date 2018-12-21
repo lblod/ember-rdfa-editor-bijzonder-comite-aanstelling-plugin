@@ -26,11 +26,18 @@
         onSave=(action "saveAddMandataris")
         bestuursorgaan=bestuursorgaan
         mandatarissen=mandatarissen
+        comiteMandaat=comiteMandaat
       }}
     {{/if}}
 
     {{#each sortedMandatarissen as |mandataris|}}
-      {{comite-aanstelling/artikel-2/table-row mandataris=mandataris mandatarissen=mandatarissen opvolgers=opvolgers}}
+      {{comite-aanstelling/artikel-2/table-row
+        comiteMandaat=comiteMandaat
+        mandataris=mandataris
+        mandatarissen=mandatarissen
+        opvolgers=opvolgers
+        comiteMandaat=comiteMandaat
+        onRemove=(action "onRemove")}}
     {{/each}}
   </tbody>
 </table>

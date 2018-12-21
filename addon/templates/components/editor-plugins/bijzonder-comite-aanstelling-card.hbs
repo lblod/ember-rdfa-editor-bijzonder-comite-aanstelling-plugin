@@ -72,17 +72,19 @@
         {{/if}}
       </div>
     </div>
-
-    {{#m.content isSectioned=true}}
-      {{comite-aanstelling/aanstelling-container
-        mandatarissen=mandatarissen
-        bestuursorgaan=bestuursorgaan
-        bestuurseenheid=bestuurseenheid
-        statusCodes=mandatarisStatusCodes
-        opvolgers=opvolgers
-      }}
-      {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
-    {{/m.content}}
+    {{#unless loadData.isRunning}}
+      {{#m.content isSectioned=true}}
+        {{comite-aanstelling/aanstelling-container
+          mandatarissen=mandatarissen
+          bestuursorgaan=bestuursorgaan
+          bestuurseenheid=bestuurseenheid
+          statusCodes=mandatarisStatusCodes
+          opvolgers=opvolgers
+          comiteMandaat=comiteMandaat
+        }}
+        {{comite-aanstelling/output-rdfa id=outputId class="u-hidden" mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
+      {{/m.content}}
+    {{/unless}}
     <div class="modal-dialog__footer">
       {{#wu-button-group}}
         <label class="checkbox checkbox--block u-spacer--bottom--small">

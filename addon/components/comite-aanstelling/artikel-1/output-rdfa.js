@@ -2,31 +2,43 @@ import Component from '@ember/component';
 import layout from '../../../templates/components/comite-aanstelling/artikel-1/output-rdfa';
 import { computed } from '@ember/object';
 import sortMandataris from '../../../utils/sort-mandataris-name';
+import { A } from '@ember/array';
 
 export default Component.extend({
   layout,
 
-  artikel1Geen: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'geen').length == this.mandatarissen.length;
+  combinedMandatarissen: computed('mandatarissen.[]', 'opvolgers.[]',
+                                  'mandatarissen.@each.status',
+                                  'opvolgers.@each.status',
+                                  function(){
+                                    return A([...this.mandatarissen.toArray(), ...this.opvolgers.toArray()]);
+                                  }),
+
+  artikel1Geen: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.artikel1A.length == 0
+      && this.artikel1AK.length == 0
+      && this.artikel1AZK.length == 0
+      && this.artikel1VK.length == 0
+      && this.artikel1OV.lenght == 0;
   }),
 
-  artikel1A: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'afstand');
+  artikel1A: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.combinedMandatarissen.sort(sortMandataris).filter(m => m.status.key == 'afstand');
   }),
 
-  artikel1AK: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'afwezigKennis');
+  artikel1AK: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.combinedMandatarissen.sort(sortMandataris).filter(m => m.status.key == 'afwezigKennis');
   }),
 
-  artikel1AZK: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'afwezigZonderKennis');
+  artikel1AZK: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.combinedMandatarissen.sort(sortMandataris).filter(m => m.status.key == 'afwezigZonderKennis');
   }),
 
-  artikel1VK: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'verkiesbaarheid');
+  artikel1VK: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.combinedMandatarissen.sort(sortMandataris).filter(m => m.status.key == 'verkiesbaarheid');
   }),
 
-  artikel1OV: computed('mandatarissen.[]', 'mandatarissen.@each.afstandVanMandaatStatus', function(){
-    return this.mandatarissen.sort(sortMandataris).filter(m => m.afstandVanMandaatStatus.key == 'onverenigbaarheid');
+  artikel1OV: computed('combinedMandatarissen.[]', 'combinedMandatarissen.@each.status', function(){
+    return this.combinedMandatarissen.sort(sortMandataris).filter(m => m.status.key == 'onverenigbaarheid');
   })
 });

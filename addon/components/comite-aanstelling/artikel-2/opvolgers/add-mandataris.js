@@ -8,24 +8,21 @@ export default Component.extend({
   layout,
   tagName: 'tr',
 
-  createNewMandataris(templateMandataris) {
+  createNewMandataris(persoon) {
     const mandataris = MandatarisToCreate.create({});
-    mandataris.set('isBestuurlijkeAliasVan', templateMandataris.get('isBestuurlijkeAliasVan'));
-    mandataris.set('afstandVanMandaatStatus', afstandMandaatStatus.find(s => s.key == 'geen'));
-    mandataris.set('isEffectief', false);
-    mandataris.set('neemtAfstand', false);
+    mandataris.set('isBestuurlijkeAliasVan', persoon);
+    mandataris.set('status', {});
+    mandataris.set('bekleedt', this.comiteMandaat);
     return mandataris;
-  },
-
+   },
 
   actions: {
-    select(mandataris){
-      this.set('selectedMandataris', mandataris);
+    select(persoon){
+      this.set('selectedMandataris', this.createNewMandataris(persoon));
     },
 
     save(){
-      let newM = this.createNewMandataris(this.selectedMandataris);
-      this.onSave(newM);
+      this.onSave(this.selectedMandataris);
       this.set('selectedMandataris', null);
     },
 

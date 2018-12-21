@@ -5,11 +5,15 @@ import sortName from '../../../utils/sort-mandataris-name';
 
 export default Component.extend({
   layout,
-  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{isEffectief,neemtAfstand,afstandVanMandaatStatus}', function(){
-    return this.mandatarissen.filter(m => m.afstandVanMandaatStatus.key == 'geen').sort(sortName).filter(m =>  m.isEffectief);
+  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{status}', function(){
+    return this.mandatarissen.sort(sortName);
   }),
 
   actions: {
+
+    onRemove(mandataris){
+      this.mandatarissen.removeObject(mandataris);
+    },
     addMandataris(){
       this.set('addMandatarisMode', true);
     },
@@ -20,6 +24,7 @@ export default Component.extend({
 
     saveAddMandataris(mandataris){
       mandataris.set('isEffectief', true);
+      this.mandatarissen.pushObject(mandataris);
       this.set('addMandatarisMode', false);
     }
   }

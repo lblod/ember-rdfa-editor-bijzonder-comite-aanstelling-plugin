@@ -1,86 +1,86 @@
 {{#if nieuweStijl}}
   {{!-- ************************************* NIEUWE STIJL *************************************--}}
   {{#comite-aanstelling/output-article as |a|}}
-    {{comite-aanstelling/artikel-1/output-rdfa articleUri=a.articleUri articleTypeof=a.typeof mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
-   {{/comite-aanstelling/output-article}}
+    {{comite-aanstelling/artikel-1/output-rdfa articleUri=a.articleUri opvolgers=opvolgers articleTypeof=a.typeof mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
+  {{/comite-aanstelling/output-article}}
 
-   {{#comite-aanstelling/output-article as |a| }}
-     <span property="eli:number">Artikel 2</span>
-     <div property="prov:value">
-       <br>
-       <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
-       <ul class="bullet-list">
-         {{#each artikel2Mandatarissen as |mandataris|}}
-           {{comite-aanstelling/artikel-2/output-rdfa
-             mandataris=mandataris
-             mandatarissen=mandatarissen
-             articleUri=a.articleUri
-             articleTypeof=a.typeof
-             nieuweStijl=nieuweStijl
-             opvolgers=opvolgers
-           }}
-         {{/each}}
-       </ul>
-     </div>
-   {{/comite-aanstelling/output-article}}
+  {{#comite-aanstelling/output-article as |a| }}
+    <span property="eli:number">Artikel 2</span>
+    <div property="prov:value">
+      <br>
+      <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
+      <ul class="bullet-list">
+        {{#each artikel2Mandatarissen as |mandataris|}}
+          {{comite-aanstelling/artikel-2/output-rdfa
+            mandataris=mandataris
+            mandatarissen=mandatarissen
+            articleUri=a.articleUri
+            articleTypeof=a.typeof
+            nieuweStijl=nieuweStijl
+            opvolgers=opvolgers
+          }}
+        {{/each}}
+      </ul>
+    </div>
+  {{/comite-aanstelling/output-article}}
 
-   {{#comite-aanstelling/output-article as |a|}}
-     <span property="eli:number">Artikel 3</span>
-     <div property="prov:value">
-       {{comite-aanstelling/artikel-3/output-rdfa
-         articleUri=a.articleUri
-         articleTypeof=a.typeof
-         mandatarissen=mandatarissen
-         nieuweStijl=nieuweStijl
-         opvolgers=opvolgers
-       }}
-     </div>
-   {{/comite-aanstelling/output-article}}
+  {{#comite-aanstelling/output-article as |a|}}
+    <span property="eli:number">Artikel 3</span>
+    <div property="prov:value">
+      {{comite-aanstelling/artikel-3/output-rdfa
+        articleUri=a.articleUri
+        articleTypeof=a.typeof
+        mandatarissen=mandatarissen
+        nieuweStijl=nieuweStijl
+        opvolgers=opvolgers
+      }}
+    </div>
+  {{/comite-aanstelling/output-article}}
 
-   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
+  {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
 {{else}}
-   {{!-- ************************************* OLD SKOOL *************************************--}}
+  {{!-- ************************************* OLD SKOOL *************************************--}}
 
-   <p class="u-spacer--small">Beslist,</p>
+  <p class="u-spacer--small">Beslist,</p>
 
-   {{#comite-aanstelling/output-article as |a|}}
-     {{comite-aanstelling/artikel-1/output-rdfa articleUri=a.articleUri articleTypeof=a.typeof mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
-   {{/comite-aanstelling/output-article}}
+  {{#comite-aanstelling/output-article as |a|}}
+    {{comite-aanstelling/artikel-1/output-rdfa articleUri=a.articleUri articleTypeof=a.typeof  opvolgers=opvolgers mandatarissen=mandatarissen nieuweStijl=nieuweStijl}}
+  {{/comite-aanstelling/output-article}}
 
-   {{#comite-aanstelling/output-article as |a| }}
-     <span property="eli:number">Artikel 2</span>
-     <div property="prov:value">
-       <br>
-       <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
-       <ul class="bullet-list">
-         {{#each artikel2Mandatarissen as |mandataris|}}
-           {{comite-aanstelling/artikel-2/output-rdfa
-             mandataris=mandataris
-             mandatarissen=mandatarissen
-             articleUri=a.articleUri
-             articleTypeof=a.typeof
-             nieuweStijl=nieuweStijl
-             opvolgers=opvolgers
-           }}
-         {{/each}}
-       </ul>
-     </div>
-   {{/comite-aanstelling/output-article}}
+  {{#comite-aanstelling/output-article as |a| }}
+    <span property="eli:number">Artikel 2</span>
+    <div property="prov:value">
+      <br>
+      <p>Volgende voorgedragen kandidaten verkozen te verklaren als leden van het bijzonder comité voor de sociale dienst en akte te nemen van hun eedaflegging:</p>
+      <ul class="bullet-list">
+        {{#each artikel2Mandatarissen as |mandataris|}}
+          {{comite-aanstelling/artikel-2/output-rdfa
+            mandataris=mandataris
+            mandatarissen=mandatarissen
+            articleUri=a.articleUri
+            articleTypeof=a.typeof
+            nieuweStijl=nieuweStijl
+            opvolgers=opvolgers
+          }}
+        {{/each}}
+      </ul>
+    </div>
+  {{/comite-aanstelling/output-article}}
 
-   {{#comite-aanstelling/output-article as |a|}}
-     <span property="eli:number">Artikel 3</span>
-     <div property="prov:value">
-       {{comite-aanstelling/artikel-3/output-rdfa
-         articleUri=a.articleUri
-         articleTypeof=a.typeof
-         mandatarissen=mandatarissen
-         nieuweStijl=nieuweStijl
-         opvolgers=opvolgers
-       }}
-     </div>
-   {{/comite-aanstelling/output-article}}
+  {{#comite-aanstelling/output-article as |a|}}
+    <span property="eli:number">Artikel 3</span>
+    <div property="prov:value">
+      {{comite-aanstelling/artikel-3/output-rdfa
+        articleUri=a.articleUri
+        articleTypeof=a.typeof
+        mandatarissen=mandatarissen
+        nieuweStijl=nieuweStijl
+        opvolgers=opvolgers
+      }}
+    </div>
+  {{/comite-aanstelling/output-article}}
 
-   {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
+  {{comite-aanstelling/artikel-4/output-rdfa mandatarissen=mandatarissen nieuweStijl=nieuweStijl opvolgers=opvolgers}}
 {{/if}}
 
 {{yield}}

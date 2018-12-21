@@ -1,5 +1,5 @@
 <div resource={{articleUri}} typeof={{articleTypeof}}>
-  <div property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof={{mandataris.rdfaBindings.class}}>
+  <div property="ext:bekrachtigtAanstellingVan" resource={{mandataris.uri}} typeof="{{if isMandatarisEffectief "mandaat:Mandataris" "ext:LidBijzonderComiteGeenKandidaat"}}">
     <p>
       <strong>
         {{#rdfa/ctx-linked-resource resource=mandataris p="isBestuurlijkeAliasVan" as |model persoon|}}

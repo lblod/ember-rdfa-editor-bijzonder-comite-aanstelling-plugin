@@ -7,11 +7,16 @@ import getOpvolgers from '../../../../utils/get-opvolgers';
 export default Component.extend({
   layout,
 
-  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{opvolgerVan,opvolgerPlaats,opvolgerVan}', function(){
+  sortedMandatarissen: computed('mandatarissen.[]', 'mandatarissen.@each.{status,opvolgerPlaats,opvolgerVan}', function(){
     return getOpvolgers(this.mandatarissen, this.mandataris).sort(plaatsSort);
   }),
 
   actions: {
+
+    onRemove(mandataris){
+      this.mandatarissen.removeObject(mandataris);
+    },
+
     addMandataris(){
       this.set('addMandatarisMode', true);
     },

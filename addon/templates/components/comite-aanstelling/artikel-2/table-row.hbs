@@ -2,7 +2,7 @@
   <strong>{{mandataris.isBestuurlijkeAliasVan.gebruikteVoornaam}} {{mandataris.isBestuurlijkeAliasVan.achternaam}}</strong>
   <div>
     {{#if showOpvolgers}}
-      {{comite-aanstelling/artikel-2/opvolgers/table mandataris=mandataris mandatarissen=opvolgers kandidaatOpvolgers=mandatarissen}}
+      {{comite-aanstelling/artikel-2/opvolgers/table mandataris=mandataris mandatarissen=opvolgers kandidaatOpvolgers=mandatarissen comiteMandaat=comiteMandaat}}
     {{/if}}
   </div>
 </td>
@@ -12,7 +12,7 @@
       <i class="vi vi-edit"></i> Beheer opvolgers
     {{/wu-link-button}}
     {{#wu-link-button class="button--alt button--small" isNarrow=true onClick=(action "remove")}}
-      <i class="vi vi-cross vi-u-s"></i> Haal uit lijst en stel aan als opvolger
+      <i class="vi vi-cross vi-u-s"></i> Haal uit lijst
     {{/wu-link-button}}
   </div>
 </td>
