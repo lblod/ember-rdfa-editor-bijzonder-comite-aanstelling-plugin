@@ -1,6 +1,6 @@
 {
   "name": "@lblod/ember-rdfa-editor-bijzonder-comite-aanstelling-plugin",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
